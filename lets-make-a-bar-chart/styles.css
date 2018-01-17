@@ -1,0 +1,10 @@
+.bar {
+  background-color: steelblue;
+  color: white;
+  font: 10px sans-serif;
+  margin: 1px;
+  padding: 3px;
+  text-align: right;
+}
+
+.chart {}
