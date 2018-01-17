@@ -1,0 +1,29 @@
+.chart {}
+
+.bar {
+  fill: steelblue;
+}
+.bar:hover {
+  fill: green;
+}
+
+.label {
+  fill: black;
+  font: 10px sans-serif;
+  text-anchor: middle;
+}
+
+.axis text {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  shape-rendering: crispEdges;
+  stroke: #000;
+}
+
+.x.axis path {
+  display: none;
+}
