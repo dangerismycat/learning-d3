@@ -6,7 +6,7 @@ function update(data, svgGroup) {
   // DATA JOIN
   // Join new data with old elements, if any.
   const text = svgGroup.selectAll('text')
-      .data(data);
+      .data(data, (d) => d); // second arg provides key to track data through updates
   // UPDATE
   // Update old elements as needed.
   text.attr('class', 'update');
@@ -18,10 +18,10 @@ function update(data, svgGroup) {
   // apply operations to both.
   text.enter().append('text')
       .attr('class', 'enter')
-      .attr('x', (d, i) => i * 32)
       .attr('dy', '.35em')
+      .text((d) => d)
     .merge(text)
-      .text((d) => d);
+      .attr('x', (d, i) => i * 32);
   // EXIT
   // Remove old elements as needed.
   text.exit().remove();
@@ -42,9 +42,10 @@ window.onload = () => {
 
   // Grab a random sample of letters from the alphabet, in alphabetical order.
   d3.interval(() => {
-    update(d3.shuffle(alphabet)
-        .slice(0, Math.floor(Math.random() * 26))
-        .sort(), g);
+    const newAlphabet = d3.shuffle(alphabet)
+      .slice(0, Math.floor(Math.random() * 26))
+      .sort();
+    update(newAlphabet, g);
   }, UPDATE_INTERVAL);
 };
 
