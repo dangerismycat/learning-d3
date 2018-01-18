@@ -6,6 +6,10 @@ text {
   fill: green;
 }
 
+.exit {
+  fill: brown;
+}
+
 .update {
   fill: #333;
 }
